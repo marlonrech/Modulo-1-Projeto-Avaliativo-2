@@ -66,7 +66,7 @@ const ListagemMedicamento = () => {
   return (
     <>
       <Header />
-              <Form.Group className='input' xs={2} as={Col} >
+              <Form.Group lg={2} md={5} sm={5}className='input2' xs={10}as={Col} >
                   <Form.Control value={termo} onChange={(e) => setTermo(e.target.value)} placeholder='Digite o nome do medicamento'/>
                 </Form.Group>
       <div className='div row '>
