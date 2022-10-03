@@ -52,8 +52,10 @@ const CadastroFarmacia = () => {
         return response.json();
       })
       .then((local) => { //retorno API
-        const longitude = local[1].lon;
-        const latitude = local[1].lat;
+        console.log(local);
+        // O erro aqui foi apenas de pegar a primera posição do array, que é o objeto que contém as coordenadas
+        const longitude = local[0].lon;
+        const latitude = local[0].lat;
         setForm((prev) => ({ ...prev, longitude, latitude }));
         console.log(local);
       });

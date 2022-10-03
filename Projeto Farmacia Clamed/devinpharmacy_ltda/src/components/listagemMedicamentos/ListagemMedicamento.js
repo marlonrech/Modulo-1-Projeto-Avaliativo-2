@@ -8,7 +8,7 @@ import { Container, Row, Col, Form} from 'react-bootstrap'
 
 
 const ListagemMedicamento = () => {
-
+  // procure colocar todos os useState no início do código para melhor organização
   const [modal, setModal] = useState(false);
   const [tempdata, setTempData] = useState([]);
 
@@ -30,6 +30,8 @@ const ListagemMedicamento = () => {
       })
       .then((data) => {
         setMedicamento(data);
+        // não é necessário 2 useEffect, pois vc está fazendo a mesma coisa, só colocando os dados em um estado diferente
+        setFiltro(data);
       });
 
   }, []);
@@ -37,16 +39,16 @@ const ListagemMedicamento = () => {
 
   const [filtrado, setFiltro] = useState(medicamento);
 
-  useEffect(() => {
-    fetch("http://localhost:3001/medicamentos")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setFiltro(data);
-      });
+  // useEffect(() => {
+  //   fetch("http://localhost:3001/medicamentos")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setFiltro(data);
+  //     });
 
-  }, []);
+  // }, []);
 
   const [termo, setTermo] = useState('')
 
